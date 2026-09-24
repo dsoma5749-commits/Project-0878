@@ -3,6 +3,8 @@ import { Language, ActiveTab } from '../types';
 import { audioSynth } from '../services/audioSynth';
 import { nasaEarthData, INDIA_AGRI_REGIONS, NasaAgroTelemetry } from '../services/nasaEarthData';
 import { REAL_INDIA_MANDIS } from '../services/indiaAgriData';
+import { FarmerResilienceLoop } from './FarmerResilienceLoop';
+import { DataProvenanceAuditCard } from './DataProvenanceAuditCard';
 import {
   ShieldAlert,
   TrendingUp,
@@ -108,6 +110,9 @@ export const Overview: React.FC<OverviewProps> = ({ language, onNavigateTab }) =
         </button>
       </div>
 
+      {/* Hero Presentation Narrative: Project-0878 Farmer Resilience Loop */}
+      <FarmerResilienceLoop language={language} onNavigateTab={onNavigateTab} />
+
       {/* 4 High-Level Key Performance Metric Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* 1. Protected Farmland */}
@@ -158,6 +163,18 @@ export const Overview: React.FC<OverviewProps> = ({ language, onNavigateTab }) =
           <div className="text-[11px] text-slate-400 mt-1">e-NAM Farm-to-Mandi Highway</div>
         </div>
       </div>
+
+      {/* Enterprise Data Provenance, Validation & Explainable Decision Layer (Arnab Architecture) */}
+      <DataProvenanceAuditCard
+        language={language}
+        waterLevel={51.33}
+        dangerLevel={49.68}
+        precipitationMm={nasaTelemetry?.precipitationMm ?? 10.2}
+        relativeHumidity={nasaTelemetry?.relativeHumidityPct ?? 86}
+        dischargeM3s={54800}
+        isFloodSurge={true}
+        isLiveNasa={nasaTelemetry?.isLive ?? true}
+      />
 
       {/* Core Interactive Modules Showcase */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

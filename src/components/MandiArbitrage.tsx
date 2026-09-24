@@ -5,6 +5,7 @@ import {
   REAL_INDIA_MANDIS,
   REAL_COLD_STORAGES,
   REAL_CORRIDOR_ARBITRAGE,
+  MANDI_DATASET_PROVENANCE,
   RealCorridorArbitrage,
   RealMandiRecord,
   RealColdStorageFacility,
@@ -71,6 +72,19 @@ export const MandiArbitrage: React.FC<MandiArbitrageProps> = ({ language }) => {
         {/* Currency & Unit Standard */}
         <div className="flex items-center gap-2 text-xs font-mono bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 text-slate-300">
           <span>Standard: 1 Maund (মণ) = 40 KG · 1 Quintal = 100 KG</span>
+        </div>
+      </div>
+
+      {/* Dataset Provenance & Retrieval Timestamp Bar */}
+      <div className="bg-slate-950/80 border border-slate-800 rounded-xl px-4 py-2.5 flex flex-wrap items-center justify-between text-xs font-mono gap-2">
+        <div className="flex items-center gap-2">
+          <span className="text-emerald-400 font-bold">Data Provenance:</span>
+          <span className="text-slate-300">{MANDI_DATASET_PROVENANCE.type} · Agmarknet Modal Benchmarks</span>
+        </div>
+        <div className="text-[11px] text-slate-400 flex items-center gap-2">
+          <span>Baseline: {MANDI_DATASET_PROVENANCE.baselineDate}</span>
+          <span>·</span>
+          <span className="text-cyan-400 font-semibold">Retrieved: {MANDI_DATASET_PROVENANCE.retrievalTimestamp}</span>
         </div>
       </div>
 
