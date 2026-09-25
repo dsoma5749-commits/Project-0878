@@ -175,7 +175,7 @@ export const ClimateRadar: React.FC<ClimateRadarProps> = ({ language }) => {
               NASA Earth Data + ISRO Bhuvan (NRSC)
             </span>
             <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-2 py-0.5 rounded">
-              CWC Hydrological Rating Curve Active
+              CWC-Calibrated Hydrological Model Active
             </span>
           </div>
           <h2 className="text-lg font-bold text-white flex items-center gap-2 mt-1">

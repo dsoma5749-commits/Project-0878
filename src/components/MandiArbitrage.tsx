@@ -184,7 +184,7 @@ export const MandiArbitrage: React.FC<MandiArbitrageProps> = ({ language }) => {
                       {isBn ? '১. স্থানীয় কৃষক মান্ডি' : '1. Origin APMC Mandi'}
                     </span>
                     <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-1.5 py-0.5 rounded">
-                      e-NAM Active
+                      e-NAM benchmark
                     </span>
                   </div>
                   <div className="text-sm font-bold text-white mt-1">
@@ -209,7 +209,7 @@ export const MandiArbitrage: React.FC<MandiArbitrageProps> = ({ language }) => {
                       {isBn ? '২. কেন্দ্রীয় টার্মিনাল মান্ডি' : '2. Destination Terminal Mandi'}
                     </span>
                     <span className="text-[10px] font-mono text-cyan-400 bg-cyan-950/60 px-1.5 py-0.5 rounded">
-                      Agmarknet Verified
+                      Agmarknet benchmark
                     </span>
                   </div>
                   <div className="text-sm font-bold text-emerald-200 mt-1">

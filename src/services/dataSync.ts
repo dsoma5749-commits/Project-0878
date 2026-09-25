@@ -182,7 +182,7 @@ export class DataSyncService {
     try {
       // Step 1: Official NASA POWER Agroclimatology (AG) Point API call
       // Direct parameter mapping: T2M, T2M_MAX, T2M_MIN, T2MDEW, PRECTOTCORR, RH2M, ALLSKY_SFC_SW_DWN, WS10M, GWETTOP, GWETROOT
-      const nasaPowerUrl = `https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M,T2M_MAX,T2M_MIN,T2MDEW,PRECTOTCORR,RH2M,ALLSKY_SFC_SW_DWN,WS10M,GWETTOP,GWETROOT&community=AG&longitude=${lon.toFixed(4)}&latitude=${lat.toFixed(4)}&start=20240901&end=20240905&format=JSON`;
+      const nasaPowerUrl = `https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M,T2M_MAX,T2M_MIN,T2MDEW,PRECTOTCORR,RH2M,ALLSKY_SFC_SW_DWN,WS10M,GWETTOP,GWETROOT&community=AG&longitude=${lon.toFixed(4)}&latitude=${lat.toFixed(4)}&start=${new Date(Date.now()-7*86400000).toISOString().slice(0,10).replace(/-/g,'')}&end=${new Date(Date.now()-2*86400000).toISOString().slice(0,10).replace(/-/g,'')}&format=JSON`;
 
       // Step 2: Query Copernicus GloFAS river discharge trend
       const floodUrl = `https://flood-api.open-meteo.com/v1/flood?latitude=${lat.toFixed(4)}&longitude=${lon.toFixed(4)}&daily=river_discharge,river_discharge_mean,river_discharge_max&forecast_days=7`;

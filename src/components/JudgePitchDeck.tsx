@@ -32,11 +32,11 @@ export const JudgePitchDeck: React.FC<JudgePitchDeckProps> = ({
   const isBn = language === 'bn';
   const [copied, setCopied] = useState(false);
 
-  const readmeContent = `# AgroPulse AI (কৃষি-পালস এআই) - Real NASA Earth Data & India Agri Edition
+  const readmeContent = `# AgroPulse AI (কৃষি-পালস এআই) - NASA Earth Data + India Agri Benchmark Edition
 ## Autonomous Climate & Crop Resilience Network for Smallholder Agriculture (India)
 
 ### 1. 🌍 Impact & Potential (বাস্তব প্রভাব ও সম্ভাবনা)
-- **Problem**: 140M+ smallholder farmers across India lose 35-40% of their crop yields annually due to unpredictable river basin flash-floods (Brahmaputra, Ganga, Yamuna), rapid fungal blights (Rice Blast, Kufri Potato Late Blight), coastal salinity intrusion, and middleman price-fixing at rural APMC mandis.
+- **Problem**: 140M+ · Context Benchmark smallholder farmers across India lose 35-40% of their crop yields annually due to unpredictable river basin flash-floods (Brahmaputra, Ganga, Yamuna), rapid fungal blights (Rice Blast, Kufri Potato Late Blight), coastal salinity intrusion, and middleman price-fixing at rural APMC mandis.
 - **Real-World Impact**:
   - Up to **₹35,000 / hectare** saved through early fungal containment.
   - **18-72 hour early-harvest notice** powered by Central Water Commission (CWC) river gauges and GloFAS hydrological modeling before floods destroy standing paddy.
@@ -226,7 +226,7 @@ GloFAS   MSP Schedules  MODIS GIBS
             <p className="text-xs text-slate-400 mt-2 leading-relaxed">
               {isBn
                 ? 'শতভাগ কার্যকরী ও ইন্টারঅ্যাক্টিভ। রিয়েল-টাইম অডিও সিন্থেসাইজার, স্থানীয় বাংলা ভয়েস নির্দেশিকা এবং ড্রিপ সেচ ভালভ সিমুলেটর।'
-                : 'Flawless production execution. Fully interactive canvas segmentation, synthesized Web Audio sirens, bilingual localization, and zero mock stubs.'}
+                : 'Flawless production execution. Fully interactive canvas segmentation, synthesized Web Audio sirens, bilingual localization, and mock/demo data is explicitly disclosed.'}
             </p>
           </div>
           <div className="mt-4 pt-3 border-t border-slate-800/80 text-[11px] font-mono text-purple-400 font-semibold">

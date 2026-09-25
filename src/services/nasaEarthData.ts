@@ -94,7 +94,7 @@ export const INDIA_AGRI_REGIONS: NasaRegionalCluster[] = [
     lat: 26.1445,
     lon: 91.7362,
     riverBasin: 'Brahmaputra',
-    cwcStation: 'CWC Guwahati Gauge (Site #031)',
+    cwcStation: 'CWC-Calibrated Hydrology · Guwahati Basin',
     dangerLevelM: 49.68,
     warningLevelM: 48.68,
     hflM: 51.46,
@@ -365,7 +365,7 @@ class NasaEarthDataService {
 
     try {
       // Official NASA POWER Agroclimatology (AG) Point API
-      const nasaPowerUrl = `https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M,T2M_MAX,T2M_MIN,T2MDEW,PRECTOTCORR,RH2M,ALLSKY_SFC_SW_DWN,WS10M,GWETTOP,GWETROOT&community=AG&longitude=${lon.toFixed(4)}&latitude=${lat.toFixed(4)}&start=20240901&end=20240905&format=JSON`;
+      const nasaPowerUrl = `https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M,T2M_MAX,T2M_MIN,T2MDEW,PRECTOTCORR,RH2M,ALLSKY_SFC_SW_DWN,WS10M,GWETTOP,GWETROOT&community=AG&longitude=${lon.toFixed(4)}&latitude=${lat.toFixed(4)}&start=${new Date(Date.now()-7*86400000).toISOString().slice(0,10).replace(/-/g,'')}&end=${new Date(Date.now()-2*86400000).toISOString().slice(0,10).replace(/-/g,'')}&format=JSON`;
 
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 6500);
@@ -411,7 +411,7 @@ class NasaEarthDataService {
   }
 
   /**
-   * Fetches and calculates real Central Water Commission (CWC) physical river discharge & hydrology
+   * Fetches and calculates CWC-calibrated hydrological (CWC) physical river discharge & hydrology
    * Uses NASA POWER AG for soil wetness parameters (GWETTOP/GWETROOT) and GloFAS for flood surge trend
    */
   public async fetchBasinHydrology(region: NasaRegionalCluster): Promise<IndianRiverHydrology> {
@@ -423,7 +423,7 @@ class NasaEarthDataService {
 
     try {
       // 1. Fetch live NASA POWER agro-meteorology and soil wetness directly
-      const nasaPowerUrl = `https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M,GWETTOP,GWETROOT&community=AG&longitude=${region.lon.toFixed(4)}&latitude=${region.lat.toFixed(4)}&start=20240901&end=20240905&format=JSON`;
+      const nasaPowerUrl = `https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M,GWETTOP,GWETROOT&community=AG&longitude=${region.lon.toFixed(4)}&latitude=${region.lat.toFixed(4)}&start=${new Date(Date.now()-7*86400000).toISOString().slice(0,10).replace(/-/g,'')}&end=${new Date(Date.now()-2*86400000).toISOString().slice(0,10).replace(/-/g,'')}&format=JSON`;
       
       // 2. Fetch river discharge surge trend from Copernicus GloFAS
       const floodUrl = `https://flood-api.open-meteo.com/v1/flood?latitude=${region.lat}&longitude=${region.lon}&daily=river_discharge,river_discharge_mean,river_discharge_max&forecast_days=7`;

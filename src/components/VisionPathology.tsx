@@ -308,7 +308,7 @@ export const VisionPathology: React.FC<VisionPathologyProps> = ({ language }) =>
             </span>
           </div>
           <div className="text-[11px] text-slate-400">
-            {isBn ? 'উৎপাদন লক্ষ্য মডেল:' : 'Production Edge Target:'} <span className="text-cyan-400">MobileNetV3 / YOLOv8-PlantVillage</span>
+            {isBn ? 'উৎপাদন লক্ষ্য মডেল:' : 'Production Edge Target (Future Integration):'} <span className="text-cyan-400">MobileNetV3 / YOLOv8 / PlantVillage (Future Integration)</span>
           </div>
         </div>
 
